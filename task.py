@@ -13,16 +13,12 @@ class Task:
 		self.date = datetime.date.today().strftime('%d/%m/%Y')
 		
 	
-	def file_exists(self):
-		"""check to see if a file has been created"""
-		return os.path.isfile('worklog.csv')
-	
 	
 	def task_as_dict(self):
 		"""this method returns the task info
 		in the form of a dict"""
 		
-		if not self.file_exists():
+		if not os.path.isfile('worklog.csv'):
 			ID = 1
 		else:
 			# get the last task id
@@ -37,7 +33,7 @@ class Task:
 		as a task and writes it to the file"""
 		
 		# check to see if the file exists 
-		file_exists = self.file_exists()
+		file_exists = os.path.isfile('worklog.csv')
 		with open('worklog.csv','a') as mycsv:
 			writer = csv.DictWriter(mycsv,fieldnames=self.headers)
 			# prevent the header from repeating 

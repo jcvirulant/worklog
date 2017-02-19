@@ -16,6 +16,11 @@ def help_text():
 	alert_message(msg)
 	
 
+
+def file_exists():
+	return os.path.isfile('worklog.csv')
+
+
 def type_of_search_info():
 	"""this method asks the user for a 
 	type of search"""
@@ -582,7 +587,7 @@ def main():
 		elif user_input=="n":
 			create_task()
 		#check to see if the file exists
-		elif not task.file_exists():
+		elif not file_exists():
 			input("Sorry you have not saved any tasks yet! [press enter]")
 			return main()
 		elif user_input == "h":
