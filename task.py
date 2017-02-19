@@ -1,18 +1,21 @@
-import datetime,time
-import csv, os, re
+import datetime
+import time
+import csv
+import os
+import re
+
 
 class Task:
 	date= None
 	task_name = None
 	time_spent = None
 	notes = None
-	headers = ["ID","Date","Task_name","Time_spent","Notes"]
+	headers = ["ID", "Date", "Task_name", "Time_spent", "Notes"]
 	
 	
 	def __init__(self):
 		self.date = datetime.date.today().strftime('%d/%m/%Y')
 		
-	
 	
 	def task_as_dict(self):
 		"""this method returns the task info
@@ -76,7 +79,6 @@ class Task:
 			for row in reader:
 				tasks.append(row)
 		return tasks
-	
 	
 	
 	def edit_task(self, pk):
@@ -272,19 +274,3 @@ class Task:
 			else:
 				pass
 		return results
-			
-			
-		
-		
-		
-			
-		
-		
-		
-		
-		
-		
-			
-				
-					
-

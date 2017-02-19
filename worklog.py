@@ -1,8 +1,9 @@
-import datetime, time
-import re, os
+import datetime
+import time
+import re
+import os
 
 from task import Task
-
 # create a instance of Task
 task = Task()
 
@@ -15,7 +16,6 @@ def help_text():
 				"".strip().replace('\t',''))
 	alert_message(msg)
 	
-
 
 def file_exists():
 	return os.path.isfile('worklog.csv')
@@ -174,8 +174,7 @@ def get_task_choice(results):
 		if key == choice:
 			return val
 
-		
-		
+				
 def show_results(results):
 	"""this method takes a list,
 	checks to see if its empty,
@@ -539,7 +538,6 @@ def create_task():
 	# write the task to the file
 	task.write_task(task_as_dict)
 	
-
 	
 def edit_task():
 	clear_screen()
@@ -574,7 +572,9 @@ def delete_task():
 	# print the message to the console
 	alert_message(message)
 	
+
 help_text()
+
 
 def main():
 	while True:
@@ -604,6 +604,5 @@ def main():
 		else:
 			break
 			
-			
-			
+						
 main()
