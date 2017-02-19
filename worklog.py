@@ -14,7 +14,7 @@ def help_text():
 				"The app lets you record and query\n"
 				"day to day tasks.\n"
 				"".strip().replace('\t',''))
-	alert_message(msg)
+	display_message(msg)
 	
 
 def file_exists():
@@ -25,7 +25,7 @@ def type_of_search_info():
 	"""this method asks the user for a 
 	type of search"""
 	
-	alert_message("Your search options")
+	display_message("Your search options")
 	search_type = input("find by d[ate]\n"
 			 								"find by t[ime]\n"
 			 								"find by e[xact] search\n"
@@ -66,7 +66,7 @@ def print_tasks_by_date(date):
 	
 	results = []
 	clear_screen()
-	alert_message("Here are your results")
+	display_message("Here are your results")
 	content = task.read_all_tasks()
 	#print out the headers
 	print_headers()
@@ -77,7 +77,7 @@ def print_tasks_by_date(date):
 	print("*"*50)
 		
 
-def alert_message(msg):
+def display_message(msg):
 	"""this method takes a message
 	and prints it with a bit of styling
 	around it"""
@@ -95,7 +95,7 @@ def date_options(dates):
 	order"""
 
 	clear_screen()
-	alert_message("Here are your options to choose from")
+	display_message("Here are your options to choose from")
 	count = 0
 	for key,val in dates.items():
 		count+=1
@@ -147,7 +147,7 @@ def display_options(dates):
 	dates and prints it to the console"""
 
 	clear_screen()
-	alert_message("Here are you options")
+	display_message("Here are you options")
 	for key,val in dates.items():
 		print("{} {}".format(key,val))
 		
@@ -184,9 +184,9 @@ def show_results(results):
 	count = 0
 	if len(results) < 1:
 		clear_screen()
-		alert_message("Sorry, your search came up with no results!")
+		display_message("Sorry, your search came up with no results!")
 	else:
-		alert_message("Here are your options")
+		display_message("Here are your options")
 		print_results(results)
 
 
@@ -385,9 +385,9 @@ def display_pattern_results(mylist):
 	
 	count = 0
 	if not mylist:
-		alert_message("Your expression returned no results!")
+		display_message("Your expression returned no results!")
 	else:
-		alert_message("Here are your results!")
+		display_message("Here are your results!")
 		for task in mylist:
 			count +=1
 			print("{} {}".format(count,task))
@@ -441,7 +441,7 @@ def get_user_minutes():
 	if it fails, i.e user has not entered a 
 	number, it requests the user to enter again"""
 	
-	alert_message("Enter time taken on tasks!")
+	display_message("Enter time taken on tasks!")
 	minutes = input("Use the format HH:MM,\n"
 									"where 1 hour 40 mnts would be\n"
 									"entered as 01:40 >>  ".strip().replace('\t',''))
@@ -529,7 +529,7 @@ def clear_screen():
 
 def create_task():
 	clear_screen()
-	alert_message("Please create a new task!")
+	display_message("Please create a new task!")
 	task.task_name = get_task_name()
 	task.time_spent = get_task_time()
 	task.notes = get_notes_from_user()
@@ -549,7 +549,7 @@ def edit_task():
 	# get the edited task
 	result = task.edit_task(option)
 	# get edited information
-	alert_message("Please edit your task")
+	display_message("Please edit your task")
 	task.date = result[0]['Date']
 	task.task_name = get_edited_task_name(result)
 	task.time_spent = get_edited_time(result)
@@ -557,7 +557,7 @@ def edit_task():
 	# build the edited content
 	message = task.build_edited_content(option)
 	# print the message to the console
-	alert_message(message)
+	display_message(message)
 
 	
 def delete_task():
@@ -570,7 +570,7 @@ def delete_task():
 	# delete the selected task
 	message = task.build_deleted_content(option)
 	# print the message to the console
-	alert_message(message)
+	display_message(message)
 	
 
 help_text()
@@ -582,7 +582,7 @@ def main():
 		print("*"*50)
 		if user_input not in "nfqhed" or not user_input:
 			clear_screen()
-			alert_message("That was not a valid selection!")
+			display_message("That was not a valid selection!")
 			continue
 		elif user_input=="n":
 			create_task()
