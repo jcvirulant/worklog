@@ -1,5 +1,6 @@
 # worklog
-A terminal application to prepare better timesheets for a company. The program writes and reads work data such as time spent on task, task completion date and other information in a CSV file.
+A terminal application to prepare better timesheets for a company. The program writes and reads work data such as 
+time spent on task, task completion date and other information in a CSV file.
 
 #example code
 
